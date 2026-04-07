@@ -1,0 +1,61 @@
+@mixin container {
+    width: 100%;
+    max-width: $container-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+}
+
+// Медиа-запросы
+@mixin tablet {
+    @media (min-width: $bp-tablet) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (min-width: $bp-laptop) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $bp-desktop) {
+        @content;
+    }
+}
+
+// Neon glow эффект
+@mixin neon-glow {
+    box-shadow: $neon-glow;
+    transition: $transition-normal;
+
+    &:hover {
+        box-shadow: 0 0 30px currentColor;
+    }
+}
+
+// Плавное появление секций
+@mixin fade-in($delay: 0s) {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s $delay forwards ease-out;
+}
+
+// Кнопка с неоновым стилем
+@mixin neon-button {
+    padding: $spacing-md $spacing-2xl;
+    border: 2px solid $neon-green;
+    color: $neon-green;
+    font-weight: $font-medium;
+    border-radius: $radius-md;
+    background: transparent;
+    transition: $transition-normal;
+
+    &:hover {
+        background: $neon-green;
+        color: $bg-primary;
+        box-shadow: 0 0 25px $neon-green;
+    }
+}
