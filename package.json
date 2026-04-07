@@ -1,21 +1,22 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Портфолио фронтенд-разработчика",
+  "main": "src/index.html",
   "scripts": {
+    "start": "live-server src --port=5500 --open",
+    "build": "echo 'Build script will be added later if needed'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Demiurg4",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Demiurg4/portfolio.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Demiurg4/portfolio/issues"
-  },
-  "homepage": "https://github.com/Demiurg4/portfolio#readme"
+  "homepage": "https://github.com/Demiurg4/portfolio#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.99.0"
+  }
 }
