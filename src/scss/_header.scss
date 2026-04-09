@@ -1,0 +1,87 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: $bg-secondary;
+    backdrop-filter: blur(12px);
+    border-bottom: 3px solid $neon-green;
+    box-shadow: 
+        0 0 12px $neon-green,
+        0 0 25px $neon-green,
+        0 0 40px rgba(0, 255, 157, 0.5); 
+    z-index: $z-header;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &__container {
+        @include container;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo {
+        font-family: 'WDXL Lubrifont TC', system-ui, sans-serif;
+        font-size: $font-2xl;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        color: $text-primary;
+        cursor: default;
+        text-shadow: 0 0 2px rgba(0, 255, 157, 0.3);
+        animation: neon-flicker 2.4s infinite ease-in-out;
+    }
+    &__nav {
+        display: flex;
+        gap: $spacing-2xl;
+        
+        .header__link {
+            color: $text-secondary;
+            font-weight: $font-medium;
+            font-size: $font-xl;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+
+            &:hover {
+                color: $neon-green;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: $neon-green;
+                box-shadow: 0 0 10px $neon-green;
+                transition: width 0.3s ease;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+    }
+    &.scrolled {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+// Анимка мигания лого
+@keyframes neon-flicker {
+    0%, 100% {
+        text-shadow: 
+            0 0 2px rgba(0, 255, 157, 0.3),
+            0 0 8px rgba(0, 255, 157, 0.4),
+            0 0 20px rgba(0, 255, 157, 0.2);
+    }
+    50% {
+        text-shadow: 
+            0 0 8px $neon-green,
+            0 0 25px $neon-green,
+            0 0 45px $neon-green,
+            0 0 65px rgba(0, 255, 157, 0.7);
+    }
+}
