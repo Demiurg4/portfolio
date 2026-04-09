@@ -57,14 +57,18 @@ $spacing-2xl: 4rem;     // 64px
 $spacing-3xl: 6rem;     // 96px
 
 // Контейнер и максимальная ширина
-$container-width: 1280px;
+$container-width: 1440px;
 $container-padding: $spacing-lg;
 
 // Брейкпоинты
-$bp-mobile: 480px;
-$bp-tablet: 768px;
-$bp-laptop: 1024px;
-$bp-desktop: 1280px;
+$bp-xs: 320px;
+$bp-s: 425px;
+$bp-m: 576px;
+$bp-l: 768px;
+$bp-xl: 991px;
+$bp-2xl: 1200px;
+$bp-3xl: 1440px;
+$bp-4xl: 1920px;
 
 // Z-индекс
 $z-header: 1000;

@@ -1,15 +1,7 @@
 @import 'vars';
 @import 'reset';
 @import 'mixins';
+@import 'general';
 
 // Секции
 @import 'header';
-
-
-* {
-    font-family: 'WDXL Lubrifont TC', system-ui, sans-serif;
-    letter-spacing: 1.5px;
-}
-.gav {
-    color: black;
-}

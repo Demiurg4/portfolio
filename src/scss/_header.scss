@@ -1,3 +1,7 @@
+
+// ============================================================================== ХЕДЕР ====================================================================================
+
+
 .header {
     position: fixed;
     top: 0;
@@ -7,11 +11,11 @@
     background: $bg-secondary;
     backdrop-filter: blur(12px);
     border-bottom: 3px solid $neon-green;
-    box-shadow: 
+    box-shadow: // Свечение нижней границы хедера
         0 0 12px $neon-green,
         0 0 25px $neon-green,
         0 0 40px rgba(0, 255, 157, 0.5); 
-    z-index: $z-header;
+    z-index: $z-header; 
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
     &__container {
@@ -21,8 +25,8 @@
         align-items: center;
         justify-content: space-between;
     }
+
     &__logo {
-        font-family: 'WDXL Lubrifont TC', system-ui, sans-serif;
         font-size: $font-2xl;
         font-weight: 600;
         letter-spacing: 1.5px;
@@ -31,37 +35,52 @@
         text-shadow: 0 0 2px rgba(0, 255, 157, 0.3);
         animation: neon-flicker 2.4s infinite ease-in-out;
     }
+    
     &__nav {
         display: flex;
         gap: $spacing-2xl;
-        
-        .header__link {
-            color: $text-secondary;
-            font-weight: $font-medium;
-            font-size: $font-xl;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            position: relative;
+        @include bp-xl { 
+            position: absolute;  // На планшете навигация растягивается на весь экран и располагается по центру экрана
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100vh); // Навигация прячется, чтобы потом выезжать
+            transition: $transition-slow;
+        }
+    }
 
-            &:hover {
-                color: $neon-green;
-            }
+    &__link {
+        color: $text-secondary;
+        font-weight: $font-medium;
+        font-size: $font-xl;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        position: relative;
 
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: $neon-green;
-                box-shadow: 0 0 10px $neon-green;
-                transition: width 0.3s ease;
-            }
+        &:hover {
+            color: $neon-green;
+        }
 
-            &:hover::after {
-                width: 100%;
-            }
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $neon-green;
+            box-shadow: 0 0 10px $neon-green;
+            transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+            width: 100%;
         }
     }
     &.scrolled {
@@ -69,6 +88,52 @@
         opacity: 0;
     }
 }
+
+// ============================================================================== БУРГЕР ===================================================================================
+
+
+// Обертка бургера
+.burger {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 19px;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 2000;
+    @include bp-xl {
+        display: flex;
+    }
+}
+
+ // Сами полоски бургера
+.burger span {
+    display: block;
+    height: 3px;
+    background-color: $neon-green;
+    transition: $transition-normal;
+} 
+
+// Запрещает скролл при открытом бургер меню
+.no-scroll {
+    overflow: hidden;
+}
+
+// Навигация выезжает при открытии бургер меню
+.nav-active {
+    transform: translateY(0vh);
+    background: $bg-secondary;
+}
+
+//  Анимация икноки бургера (превращается в крестик)
+.burger.burger-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.burger.burger-active span:nth-child(2) { opacity: 0; }
+.burger.burger-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+// ====================================================================== АНИМКИ ================================================================
+
+
 // Анимка мигания лого
 @keyframes neon-flicker {
     0%, 100% {

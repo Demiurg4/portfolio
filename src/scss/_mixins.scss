@@ -8,23 +8,52 @@
 }
 
 // Медиа-запросы
-@mixin tablet {
-    @media (min-width: $bp-tablet) {
+@mixin bp-xs {
+    @media (max-width: $bp-xs) {
         @content;
     }
 }
 
-@mixin laptop {
-    @media (min-width: $bp-laptop) {
+@mixin bp-s {
+    @media (max-width: $bp-s) {
         @content;
     }
 }
 
-@mixin desktop {
-    @media (min-width: $bp-desktop) {
+@mixin bp-m {
+    @media (max-width: $bp-m) {
         @content;
     }
 }
+@mixin bp-l {
+    @media (max-width: $bp-l) {
+        @content;
+    }
+}
+
+@mixin bp-xl {
+    @media (max-width: $bp-xl) {
+        @content;
+    }
+}
+
+@mixin bp-2xl {
+    @media (max-width: $bp-2xl) {
+        @content;
+    }
+}
+@mixin bp-3xl {
+    @media (max-width: $bp-3xl) {
+        @content;
+    }
+}
+
+@mixin bp-4xl {
+    @media (max-width: $bp-4xl) {
+        @content;
+    }
+}
+
 
 // Neon glow эффект
 @mixin neon-glow {

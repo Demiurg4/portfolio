@@ -1,13 +1,3 @@
-const header = document.querySelector('.header');
+import { burger } from "./burger";
 
-function handleScroll() {
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');;
-    } else {
-        header.classList.remove('scrolled');;
-    }
-}
-
-window.addEventListener('scroll', handleScroll);
-
-handleScroll();
+burger();
