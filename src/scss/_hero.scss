@@ -1,0 +1,171 @@
+.hero {
+    height: 85vh;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__container {
+        @include container;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: $spacing-xl;
+        width: calc($container-width / 2);
+    }
+
+    &__status {
+        font-size: $font-base;
+        letter-spacing: 3px;
+        background-color: #222222a1;  // Прозрачный задник
+        padding: 15px;
+        border-radius: 45px;
+        width: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-text {
+            position: relative;
+            &::before {  // Зеленая точка
+                content: '';
+                position: absolute;
+                left: -2rem;
+                top: 30%;
+                width: 0.8rem;
+                height: 0.8rem;
+                border-radius: 50%;
+                background: $neon-green;
+                animation: neon-flicker2 1.5s infinite ease-in-out;
+            }
+        }
+    }
+
+    &__title {
+        font-size: $font-5xl;
+        font-weight: $font-medium;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        z-index: 3000;
+        line-height: 1;
+        &-top {
+            position: relative;
+            width: fit-content;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0.5rem;
+                right: -1.5rem;
+                width: 0.8rem;
+                height: 0.8rem;
+                border-radius: 50%;
+                background: $neon-green;
+                box-shadow: // Свечение нижней границы хедера
+                0 0 12px $neon-green,
+                0 0 25px $neon-green,
+                0 0 40px rgba(0, 255, 157, 0.5); 
+                border: $neon-green 2px solid;
+            }
+        }
+        &-bot {
+            line-height: 1.4;
+        }
+
+    }
+
+    &__descr {
+        font-size: $font-xl;
+        letter-spacing: 2px;
+        color: $text-secondary;
+    }
+
+    // &__typing {
+    //     margin-top: -0.5rem;
+    //     margin-bottom: -0.5rem;
+    // }
+    
+    &__btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__cta {
+        padding: 1rem 3rem;
+        width: 12vw;
+        text-align: center;
+        font-size: $font-xl;
+        color: $text-primary;
+        border-radius: 10px;
+        border: 2px $neon-green solid;
+        transition: 0.4s;
+        background: $bg-secondary;
+        &:hover {
+            background: $neon-green;
+            color: $bg-primary;
+            box-shadow:
+                0 0 12px $neon-green,
+                0 0 25px $neon-green,
+                0 0 40px rgba(0, 255, 157, 0.5); 
+            ;
+        }
+    }
+
+    &__right {
+        position: relative;
+        background-color: $bg-accent;
+        width: 15vw;
+        height: 15vw;
+        // padding: 50px;
+        z-index: -0.5;
+        border-radius: 45px;
+        box-shadow:
+        0 0 12px $neon-green,
+        0 0 25px $neon-green,
+        0 0 40px rgba(0, 255, 157, 0.5); 
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: $neon-green;
+            filter: blur(200px);
+            z-index: -1;
+            animation: light-flicker1 3s infinite linear;
+            
+        }
+    }
+    &__right svg path {
+        fill: $neon-green;
+    }
+}
+.svg-icon {
+    animation: rotator 4s linear infinite;
+}
+
+#typed {
+  font-size: 2rem;
+  font-weight: $font-medium;
+  height: 3rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  background: $neon-green;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.typed-cursor {
+    font-size: 2rem;
+    color: $neon-green;
+}

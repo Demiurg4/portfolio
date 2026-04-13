@@ -3,6 +3,12 @@
     letter-spacing: 1.5px;
 }
 
-.gav {
-    color: black;
+html {
+    font-size: 16px;
+    @include bp-3xl {
+        font-size: 15px;
+    }
+    @include bp-xl {
+        font-size: 14px;
+    }
 }
